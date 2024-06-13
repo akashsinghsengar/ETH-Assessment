@@ -1,0 +1,25 @@
+contract MyToken {
+
+    // public variables here
+    string public newTokenName = "crimeXprime";
+    string public newTokenAbbrv = "AK";
+    uint public newTotalValue = 0;
+
+    // mapping variable here
+    mapping(address => uint) public newBalances;
+
+    // mint function
+    function nwmint(address _address, uint _value) public{
+        newTotalValue += _value;
+        newBalances[_address] += _value;
+    }
+
+    // burn function
+    function newBurn (address _address, uint _value) public{
+        if(newBalances[_address] >= _value){
+            newTotalValue -= _value;
+            newBalances[_address] -= _value;
+        }
+    }
+
+}
